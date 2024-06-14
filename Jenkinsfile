@@ -1,10 +1,13 @@
 pipeline {
+// agent in which pipeline should run
    agent {
         label 'AGENT-1'
     }
+    // we can define some functions like timeout,disable concurrent builds etc
     options {
         // Timeout counter starts AFTER agent is allocated
-        timeout(time: 1, unit: 'SECONDS')
+        timeout(time: 30, unit: 'minutes')
+        disableConcurrentBuilds()
     }
     stages {
         stage('Build') {
