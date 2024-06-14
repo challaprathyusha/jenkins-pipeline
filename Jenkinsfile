@@ -2,6 +2,10 @@ pipeline {
    agent {
         label 'AGENT-1'
     }
+    options {
+        // Timeout counter starts AFTER agent is allocated
+        timeout(time: 1, unit: 'SECONDS')
+    }
     stages {
         stage('Build') {
             steps {
@@ -10,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'echo test stage in pipeline'
+                sh 'sleep 60'
             }
         }
         stage('Deploy') {
