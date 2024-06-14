@@ -6,7 +6,7 @@ pipeline {
     // we can define some functions like timeout,disable concurrent builds etc
     options {
         // Timeout counter starts AFTER agent is allocated
-        timeout(time: 30, unit: 'minutes') // Specifying a global execution timeout of one hour, after which Jenkins will abort the Pipeline run.
+        timeout(time: 30, unit: 'MINUTES') // Specifying a global execution timeout of one hour, after which Jenkins will abort the Pipeline run.
         disableConcurrentBuilds()
     }
     stages {
