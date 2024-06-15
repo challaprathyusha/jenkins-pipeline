@@ -3,10 +3,22 @@ pipeline {
    agent {
         label 'AGENT-1'
     }
+// The parameters directive provides a list of parameters that a user should provide when triggering the Pipeline
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    }
     // we can define some functions like timeout,disable concurrent builds etc
     options {
         // Timeout counter starts AFTER agent is allocated
-        timeout(time: 30, unit: 'MINUTES') // Specifying a global execution timeout of one hour, after which Jenkins will abort the Pipeline run.
+        timeout(time: 1, unit: 'HOURS') // Specifying a global execution timeout of one hour, after which Jenkins will abort the Pipeline run.
         disableConcurrentBuilds()
     }
     stages {
