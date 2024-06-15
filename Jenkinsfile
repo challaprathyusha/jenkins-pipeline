@@ -31,7 +31,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo build stage in pipeline'
-                sh 'env'
+                // sh 'env'
                 sh 'echo $GREETING'
             }
         }
@@ -58,13 +58,18 @@ pipeline {
             }
         }
     }
+
+    // post is used to send an email notification/slack notification to team if job gets failed/success
      post { 
         always { 
             echo 'I will always say Hello again!'
         }
+
+        //this runs if job is success
          success { 
             echo 'I will run when pipeline is success'
         }
+        //this runs if job is failed
         failure { 
             echo 'I will run when pipeline is failure'
         }
