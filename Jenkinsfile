@@ -55,13 +55,14 @@ pipeline {
                 echo "Toggle: ${params.TOGGLE}"
                 echo "Choice: ${params.CHOICE}"
                 echo "Password: ${params.PASSWORD}"
-                // error 'some failure'
+                error 'some failure'
             }
         }
     }
 
     // post is used to send an email notification/slack notification to team if job gets failed/success
      post { 
+        //this runs alwayss
         always { 
             echo 'I will always say Hello again!'
         }
