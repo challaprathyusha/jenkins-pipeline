@@ -45,6 +45,7 @@ pipeline {
                 sh 'echo deploy stage in pipeline'
                 // sh 'sleep 30'
                 sh 'echo trigger the pipeline for every commit to the SCM'
+                sh 'echo $DEPLOY_TO'
             }
         }
         stage('Example') {
