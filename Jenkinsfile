@@ -3,6 +3,12 @@ pipeline {
    agent {
         label 'AGENT-1'
     }
+// environmental variables that can be used anywhere in the pipeline
+    environment { 
+        DEPLOY_TO =  'production'
+        GREETING = 'Good Morning'
+    }
+
 // The parameters directive provides a list of parameters that a user should provide when triggering the Pipeline
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
@@ -25,6 +31,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo build stage in pipeline'
+                sh 'env'
+                sh 'echo $GREETING'
             }
         }
         stage('Test') {
