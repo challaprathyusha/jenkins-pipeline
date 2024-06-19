@@ -1,6 +1,6 @@
 pipeline {
 // agent in which pipeline should run
-   agent {
+    agent {
         label 'AGENT-1'
     }
 // environmental variables that can be used anywhere in the pipeline
