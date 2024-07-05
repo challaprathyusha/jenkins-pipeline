@@ -55,6 +55,7 @@ pipeline {
                 echo "Toggle: ${params.TOGGLE}"
                 echo "Choice: ${params.CHOICE}"
                 echo "Password: ${params.PASSWORD}"
+                echo "please trigger pipeline"
                 // error 'some failure'
             }
         }
